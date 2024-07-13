@@ -32,7 +32,7 @@ public class Dealer extends Player{
 	}
 
 //	public String printVisibleCard() {
-//		return "" + Dealer.super.toString().split(",")[1].trim();
+//		return "" + toString().split(",")[1].trim();
 //		
 //	}
 	

@@ -29,10 +29,10 @@ public class BlackJackApp {
 		dealer.addCardToHand(dealer.dealCard());
 
 		player.addCardToHand(dealer.dealCard());
-		System.out.println("Player's hand: " + player + "value: " + player.getHandValue());
+		System.out.println("Player's hand: " + player);
 
 		dealer.addCardToHand(dealer.dealCard());
-		System.out.println("Dealer's visible card: " + dealer.toString().split(",")[1] + "value: " + dealer.getHandValue());
+		System.out.println("Dealer's visible card: [" + dealer.toString().split(",")[1].trim());
 		
 		if(!checkBlackjackOrBust()) {
 			playerOption();
@@ -51,7 +51,7 @@ public class BlackJackApp {
 
 			case "1":
 				player.addCardToHand(dealer.dealCard());
-				System.out.println("Player's hand: " + player + "value: " + player.getHandValue());				//checkWin();
+				System.out.println("Player's hand: " + player);			
 				
 				if(checkBlackjackOrBust()) {
 					gameOver = true;
@@ -71,10 +71,15 @@ public class BlackJackApp {
 	}
 
 	private void dealerMove() {
+		
+		System.out.println("Dealer's hand: " + dealer);
+		System.out.println("Player's hand value: " + player.getHandValue());
+		System.out.println("Dealer's hand value: " + dealer.getHandValue());
 		while (dealer.getHandValue() < 17) {
-			System.out.println("Dealer is drawing.");
+			System.out.println("\nDealer is drawing.");
 			dealer.addCardToHand(dealer.dealCard());
-			System.out.println("Dealer's hand: " + dealer + "value: " + dealer.getHandValue());
+			System.out.println("Dealer's hand: " + dealer);
+			System.out.println("Dealer's hand value: " + dealer.getHandValue());
 			if(checkBlackjackOrBust()) {
 				gameOver = true;
 			}
@@ -87,25 +92,26 @@ public class BlackJackApp {
 	private boolean checkBlackjackOrBust() {
 		
 		if (player.checkBlackjack()) {
-			System.out.println("Blackjack! Player wins!!!");
+			System.out.println("\nBlackjack! Player wins!!!");
 			gameOver = true;
 			return true;
 		}
 
 		if (player.checkBust()) {
-			System.out.println("Player busts. Dealer win!!!");
+			System.out.println("\nPlayer busts. Dealer win!!!");
 			gameOver = true;
 			return true;
 		}
 
 		if (dealer.checkBlackjack()) {
-			System.out.println("Blackjack! Dealer wins!!!");
+			System.out.println("\nBlackjack! Dealer wins!!!");
+			System.out.println("Dealer's hand: " + dealer);
 			gameOver = true;
 			return true;
 		}
 
 		if (dealer.checkBust()) {
-			System.out.println("Dealer busts. Player win!!!");
+			System.out.println("\nDealer busts. Player win!!!");
 			gameOver = true;
 			return true;
 		}
@@ -117,13 +123,13 @@ public class BlackJackApp {
 
 	
 		if (player.getHandValue() <= 21 && player.getHandValue() > dealer.getHandValue()) {		
-			System.out.println("Player wins!!!");
+			System.out.println("\nPlayer wins!!!");
 			
 		} else if (player.getHandValue() < dealer.getHandValue() && dealer.getHandValue() <= 21) {			
-			System.out.println("Dealer wins!!!");
+			System.out.println("\nDealer wins!!!");
 			
 		} else if(player.getHandValue() == dealer.getHandValue()){
-			System.out.println("It's a tie!!!");
+			System.out.println("\nIt's a tie!!!");
 			
 		}
 
