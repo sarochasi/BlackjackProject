@@ -15,4 +15,20 @@ public abstract class AbstractHand {
 	public abstract int getHandValue();
 	
 	//TODO addCArd(Card card) and clear() need to be added
+	
+	public void addCard(Card card) {
+		
+		cardsInHand.add(card);
+	}
+	
+	public void clear() {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "AbstractHand [cardsInHand=" + cardsInHand + "]";
+	}
+	
+	
 }
