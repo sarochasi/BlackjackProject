@@ -25,7 +25,7 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return "[hand=" + hand + "]";
+		return "" + hand;
 	}
 	
 	public boolean checkBlackjack() {
