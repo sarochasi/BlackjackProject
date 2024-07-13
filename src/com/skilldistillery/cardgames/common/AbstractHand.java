@@ -22,7 +22,7 @@ public abstract class AbstractHand {
 	}
 	
 	public void clear() {
-		
+		cardsInHand.clear();
 	}
 
 	@Override

@@ -16,10 +16,20 @@ public class Dealer extends Player{
 		
 	}
 	
+	
 	//TODO add dealer specific behaviors
 	public Card dealCard() {
 		return deck.dealCard();
 	}
-	
+
+	@Override
+	public String toString() {
+		return Dealer.super.toString() + "]";
+	}
+
+	public void shuffleCard() {
+		deck.shuffle();
+	}
+
 	
 }

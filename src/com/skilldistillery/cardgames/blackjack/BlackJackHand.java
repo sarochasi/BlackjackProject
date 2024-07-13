@@ -12,38 +12,42 @@ public class BlackJackHand extends AbstractHand{
 	
 	@Override
 	public int getHandValue() {
-		return 0;
-		// TODO Auto-generated method stub
-	
+		int value = 0;
+		int aces = 0;
+		
+		for (Card card : cardsInHand) {
+			value += card.getValue();
+			if(card.getValue() == 11) {
+				aces++;
+			}
+		}
+		while (value > 21 && aces > 0) {
+			value -= 10;
+			aces--;
+		}
+		return value;
 	}
 
 	
 	
 	//TODO add other methods 
 	public boolean isBlackjack() {
-		int sumCard = 0;
-		for (int i = 0; i < cardsInHand.size(); i++) {
-			sumCard += cardsInHand.get(i).getValue();	
-		}
-		
-		if(sumCard == 21) {
+		if(getHandValue() == 21 && cardsInHand.size() == 2) {
 			return true;
 		}
-		return false;
+		else {
+			return false;
+		}
 				
 		
 	}
 	
 	public boolean isBust() {
-		int sumCard = 0;
-		for (int i = 0; i < cardsInHand.size(); i++) {
-			sumCard += cardsInHand.get(i).getValue();	
-		}
-		
-		if(sumCard > 21) {
+		if(getHandValue() > 21) {
 			return true;
+		}else {
+			return false;
 		}
-		return false;
 	}
 	
 //	public boolean isHard() {

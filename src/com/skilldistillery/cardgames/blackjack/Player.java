@@ -22,6 +22,20 @@ public class Player {
 		return hand.getHandValue();
 		
 	}
+
+	@Override
+	public String toString() {
+		return "[hand=" + hand + "]";
+	}
+	
+	public boolean checkBlackjack() {
+		return hand.isBlackjack();
+	}
+	
+	public boolean checkBust() {
+		return hand.isBust();
+	}
+
 	
 	
 	
