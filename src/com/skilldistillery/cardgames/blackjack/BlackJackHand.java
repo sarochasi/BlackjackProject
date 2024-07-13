@@ -50,13 +50,5 @@ public class BlackJackHand extends AbstractHand{
 		}
 	}
 	
-//	public boolean isHard() {
-//		return false;
-//	}
-//	
-//	public boolean isSoft() {
-//		return false;
-//	}
-//	
 
 }

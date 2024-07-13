@@ -25,7 +25,6 @@ public class BlackJackApp {
 		dealer.shuffleCard();
 
 		player.addCardToHand(dealer.dealCard());
-		System.out.println(player);
 
 		dealer.addCardToHand(dealer.dealCard());
 
@@ -33,7 +32,7 @@ public class BlackJackApp {
 		System.out.println("Player's hand: " + player + "value: " + player.getHandValue());
 
 		dealer.addCardToHand(dealer.dealCard());
-		System.out.println("Dealer's hand: " + dealer + "value: " + dealer.getHandValue());
+		System.out.println("Dealer's visible card: " + dealer.toString().split(",")[1] + "value: " + dealer.getHandValue());
 		
 		if(!checkBlackjackOrBust()) {
 			playerOption();
@@ -53,7 +52,6 @@ public class BlackJackApp {
 			case "1":
 				player.addCardToHand(dealer.dealCard());
 				System.out.println("Player's hand: " + player + "value: " + player.getHandValue());				//checkWin();
-				//checkBlackjackOrBust();
 				
 				if(checkBlackjackOrBust()) {
 					gameOver = true;
@@ -118,10 +116,10 @@ public class BlackJackApp {
 	private void checkWin() {
 
 	
-		if (player.getHandValue() < 21 && player.getHandValue() > dealer.getHandValue()) {		
+		if (player.getHandValue() <= 21 && player.getHandValue() > dealer.getHandValue()) {		
 			System.out.println("Player wins!!!");
 			
-		} else if (player.getHandValue() < dealer.getHandValue() && dealer.getHandValue() < 21) {			
+		} else if (player.getHandValue() < dealer.getHandValue() && dealer.getHandValue() <= 21) {			
 			System.out.println("Dealer wins!!!");
 			
 		} else if(player.getHandValue() == dealer.getHandValue()){

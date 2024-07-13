@@ -31,5 +31,9 @@ public class Dealer extends Player{
 		deck.shuffle();
 	}
 
+//	public String printVisibleCard() {
+//		return "" + Dealer.super.toString().split(",")[1].trim();
+//		
+//	}
 	
 }
